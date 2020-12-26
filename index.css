@@ -30,6 +30,11 @@
 }
 body {
     background-color: black;
+    background: url(https://c4.wallpaperflare.com/wallpaper/201/929/79/digital-art-star-wars-death-star-black-wallpaper-preview.jpg);
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
 }
 
 .header-img {
