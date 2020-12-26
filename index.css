@@ -571,7 +571,7 @@ footer {
     --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
     --primary-hue: 0;
     --primary-lightness: 50;
-    --color: hsl(0, 0%, 100%);
+    --color: white;
     --font-size: 26px;
     --shadow-primary-hue: 180;
     --label-size: 9px;
