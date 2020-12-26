@@ -19,7 +19,11 @@
 }
 
 .lays {
-    height: 500px
+    height: 500px;
+}
+
+.kurkure {
+    height: 100px;
 }
 
 body {
