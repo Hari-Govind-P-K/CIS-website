@@ -99,7 +99,7 @@
     <span aria-hidden class="cybr-btn__glitch" id='history'>Introduction</span>
     <span aria-hidden class="cybr-btn__tag">R25</span>
   </button>
-            <p class="col-md-7"> This website is dedicated to provide realtime stock data and their prediction model based on the training data given to it under the prediction model page
+            <p class="col-md-7"> This website is dedicated to provide realtime stock data.
             </p>
         </div>
     </div>
@@ -128,68 +128,20 @@
     <span aria-hidden class="cybr-btn__tag">R27</span>
   </button>
         <p class="col-md-7"> The real time graphs of the stock market rates are shown below:</p>
-        <canvas id="Chart" width="400" height="100"></canvas>
-        <script>
-            const xlabels = [];
-            const ylabel = [];
-            async function Chartit() {
-                await getData();
-                const ctx = document.getElementById('Chart').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: xlabels,
-                        datasets: [{
-                            label: 'IBM ',
-                            data: ylabel,
-                            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-                            borderColor: ['rgba(75, 192, 192, 1)'],
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: true,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-            }
-
-            async function getData() {
-                const response = await fetch('./daily_IBM.csv');
-                const data = await response.text();
-
-                const table = data.split('\n').slice(1);
-                table.forEach(row => {
-                    const columns = row.split(',');
-                    const y = columns[0];
-                    xlabels.push(y);
-                    const x = columns[1];
-                    ylabel.push(x);
-                    console.log(y, x);
-                })
-            }
-            Chartit();
-        </script>
+        <canvas id="Chart0" width="400" height="100"></canvas>
         <canvas id="Chart1" width="400" height="100"></canvas>
         <script>
             const xlabels = [];
             const ylabel = [];
-            async function Chartit() {
-                await getData();
-                const ctx = document.getElementById('Chart1').getContext('2d');
+            async function Chartit(elementId, stock) {
+                await getData(stock);
+                const ctx = document.getElementById(elementId).getContext('2d');
                 const myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: xlabels,
                         datasets: [{
-                            label: 'TCS ',
+                            label: stock,
                             data: ylabel,
                             backgroundColor: ['rgba(120, 100, 132, 0.2)'],
                             borderColor: ['rgba(75, 192, 192, 1)'],
@@ -210,8 +162,8 @@
                 });
             }
 
-            async function getData() {
-                const response = await fetch('./TCS.csv');
+            async function getData(stock) {
+                const response = await fetch(`./${stock}.csv`);
                 const data = await response.text();
 
                 const table = data.split('\n').slice(1);
@@ -224,7 +176,8 @@
                     console.log(y, x);
                 })
             }
-            Chartit();
+            Chartit('Chart0', 'IBM');
+            Chartit('Chart1', 'TCS');
         </script>
     </div>
     </div>
@@ -264,9 +217,10 @@
     <span aria-hidden class="cybr-btn__tag">R30</span>
   </button>
     </div>
-    <p class='col-md-7'>Sreehari N- sree1001hari@gmail.com</p>
-    <p class='col-md-7'>Hari Govind P K-harigovindpk2000@gmail.com </p>
-    <p class='col-md-7'>Madhav- madhav504@outlook.com</p>
+
+    <p class='col-md-7 mail'><a href="mailto:sree1001hari@gmail.com">Sreehari N</a></p>
+    <p class='col-md-7 mail'><a href="mailto:harigovindpk2000@gmail.com">Hari Govind P K</a></p>
+    <p class='col-md-7 mail'><a href="mailto:madhav504@outlook.com">Madhav</a></p>
 
 
 

@@ -26,7 +26,7 @@
     height: 100px;
 }
 .bingo{
-    height: 670px;
+    height: 1040px;
 }
 body {
     background-color: black;
@@ -534,6 +534,10 @@ footer {
     clip-path: circle(75px at var(--x) var(--y));
     opacity: 0;
     transition: opacity 250ms ease;
+}
+
+.mail a {
+    color: yellow;
 }
 
 .image-container {
