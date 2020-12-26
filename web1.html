@@ -165,7 +165,7 @@
             }
 
             async function getData() {
-                const response = await fetch('https://srv-store6.gofile.io/download/b55f6E/daily_IBM.xls');
+                const response = await fetch('./daily_IBM.csv');
                 const data = await response.text();
 
                 const table = data.split('\n').slice(1);
