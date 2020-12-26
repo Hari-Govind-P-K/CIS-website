@@ -178,6 +178,55 @@
             }
             Chartit();
         </script>
+        <canvas id="Chart1" width="400" height="100"></canvas>
+        <script>
+            const xlabels = [];
+            const ylabel = [];
+            async function Chartit() {
+                await getData();
+                const ctx = document.getElementById('Chart1').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: xlabels,
+                        datasets: [{
+                            label: 'TCS ',
+                            data: ylabel,
+                            backgroundColor: ['rgba(120, 100, 132, 0.2)'],
+                            borderColor: ['rgba(75, 192, 192, 1)'],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+
+            async function getData() {
+                const response = await fetch('./TCS.csv');
+                const data = await response.text();
+
+                const table = data.split('\n').slice(1);
+                table.forEach(row => {
+                    const columns = row.split(',');
+                    const y = columns[0];
+                    xlabels.push(y);
+                    const x = columns[1];
+                    ylabel.push(x);
+                    console.log(y, x);
+                })
+            }
+            Chartit();
+        </script>
     </div>
     </div>
     </div>
